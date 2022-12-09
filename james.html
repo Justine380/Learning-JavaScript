@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.container{
+    border: 1px solid black;
+    height: 70vh;
+    position: relative;
+}
+.secondcontainer{
+    border: 1px solid black;
+    height: 10vh;
+    position: relative;
+    top: 10px;
+}
+.cube{
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    background-color: green;
+    text-align: center;
+    position: relative;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cube">move this cube</div>
+    </div>
+    <div class="secondcontainer">
+       <button class="change" onclick="doaction()">change</button>
+    </div>
+    <script>
+        var arr = ["red", "orange","yellow", "green", "blue", "indigo", "violet"]
+        let counterp = 0;
+        let countern = 7;
+        setInterval(function(){
+            countern--;
+            counterp++;
+if(counterp == 7){
+    counterp = 0;
+}
+if(countern==0){
+    countern = 7;
+}
+document.querySelector(".container").style.backgroundColor= arr[countern]
+    document.querySelector('.cube').style.backgroundColor = arr[counterp];
+        },500)
+function doaction(){
+    console.log("clicked")
+    counterp++;
+if(counterp == 7){
+    counterp = 0;
+}
+    document.querySelector('.cube').style.backgroundColor = arr[counterp];
+}
+    </script>
+</body>
+</html>
